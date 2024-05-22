@@ -40,12 +40,6 @@ public class BookController {
     ) {
         return ResponseEntity.ok(service.findById(bookId));
     }
-    @GetMapping("/taib")
-    public ResponseEntity<BookResponse> taib(
-
-    ) {
-        return ResponseEntity.ok(service.findById(1));
-    }
 
     @GetMapping
     public ResponseEntity<PageResponse<BookResponse>> findAllBooks(

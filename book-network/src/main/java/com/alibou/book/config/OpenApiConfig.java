@@ -58,9 +58,9 @@ import java.io.IOException;
         bearerFormat = "JWT",
         in = SecuritySchemeIn.HEADER
 )
-@Configuration
+//@Configuration
 public class OpenApiConfig {
-    private static final String OPENAPI_URL = "http://localhost:8088/api/v1/v3/api-docs";
+    /*private static final String OPENAPI_URL = "http://localhost:8088/api/v1/v3/api-docs";
     private static final String OUTPUT_FILE = "book-network-ui/src/openapi/openApi.json";
 
 
@@ -102,5 +102,5 @@ public class OpenApiConfig {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
