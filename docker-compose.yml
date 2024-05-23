@@ -22,7 +22,7 @@ services:
       - 1025:1025
   bsn-api:
     container_name: bsn-api
-    image: bsn/bsn-api:0.0.2
+    image: bsn/bsn-api:0.0.3
       #environment:
       #EMAIL_HOST_NAME: ${EMAIL_HOST_NAME}
       #EMAIL_USER_NAME: ${EMAIL_USER_NAME}

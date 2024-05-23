@@ -1,0 +1,3 @@
+# .dockerignore
+./src/main/java/com.alibou.book/config/LoadOpenApiConfig.java
+./src/main/java/com/alibou/book/config/LoadOpenApiConfig.java

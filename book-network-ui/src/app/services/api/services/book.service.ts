@@ -30,8 +30,6 @@ import { returnBorrowBook } from '../fn/book/return-borrow-book';
 import { ReturnBorrowBook$Params } from '../fn/book/return-borrow-book';
 import { saveBook } from '../fn/book/save-book';
 import { SaveBook$Params } from '../fn/book/save-book';
-import { taib } from '../fn/book/taib';
-import { Taib$Params } from '../fn/book/taib';
 import { updateArchivedStatus } from '../fn/book/update-archived-status';
 import { UpdateArchivedStatus$Params } from '../fn/book/update-archived-status';
 import { updateShareableStatus } from '../fn/book/update-shareable-status';
@@ -270,31 +268,6 @@ export class BookService extends BaseService {
    */
   findBookById(params: FindBookById$Params, context?: HttpContext): Observable<BookResponse> {
     return this.findBookById$Response(params, context).pipe(
-      map((r: StrictHttpResponse<BookResponse>): BookResponse => r.body)
-    );
-  }
-
-  /** Path part for operation `taib()` */
-  static readonly TaibPath = '/books/taib';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `taib()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  taib$Response(params?: Taib$Params, context?: HttpContext): Observable<StrictHttpResponse<BookResponse>> {
-    return taib(this.http, this.rootUrl, params, context);
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `taib$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  taib(params?: Taib$Params, context?: HttpContext): Observable<BookResponse> {
-    return this.taib$Response(params, context).pipe(
       map((r: StrictHttpResponse<BookResponse>): BookResponse => r.body)
     );
   }

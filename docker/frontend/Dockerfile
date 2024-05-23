@@ -1,3 +1,4 @@
+#docker build -t bsn/bsn-ui:1.0.0 -f ../docker/frontend/Dockerfile .
 FROM node:16 as build-stage
 
 WORKDIR /app
