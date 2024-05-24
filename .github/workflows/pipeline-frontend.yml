@@ -48,7 +48,8 @@ jobs:
           service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
       - name: Authenticate to Google Cloud
-        run: echo ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }} | base64 --decode > $HOME/gcloud-service-key.json
+        run: |
+         echo ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }} | base64 --decode > $HOME/gcloud-service-key.json
 
       - name: Configure gcloud CLI
         run: |
