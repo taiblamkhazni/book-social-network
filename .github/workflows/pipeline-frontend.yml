@@ -41,24 +41,24 @@ jobs:
           platforms: linux/amd64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }},${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:latest
 
-      - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v1
-        with:
-          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v1
-        with:
-          project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
-
-      - name: Configure gcloud CLI
-        run: |
-          gcloud config set project ${{ secrets.GOOGLE_PROJECT_ID }}
-
-      - name: Deploy to Cloud Run
-        run: |
-          gcloud run deploy bsn-frontend \
-            --image=${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }} \
-            --platform=managed \
-            --region=us-central1 \
-            --allow-unauthenticated
+#      - name: Authenticate to Google Cloud
+#        uses: google-github-actions/auth@v1
+#        with:
+#          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+#
+#      - name: Set up Google Cloud SDK
+#        uses: google-github-actions/setup-gcloud@v1
+#        with:
+#          project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+#
+#      - name: Configure gcloud CLI
+#        run: |
+#          gcloud config set project ${{ secrets.GOOGLE_PROJECT_ID }}
+#
+#      - name: Deploy to Cloud Run
+#        run: |
+#          gcloud run deploy bsn-frontend \
+#            --image=${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }} \
+#            --platform=managed \
+#            --region=us-central1 \
+#            --allow-unauthenticated

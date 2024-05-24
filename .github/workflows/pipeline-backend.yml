@@ -70,7 +70,7 @@ jobs:
           cd book-network
           ./mvnw clean compile
 
-  build-image:
+  build-and-deploy:
     name: Build Docker image
     runs-on: self-hosted
     needs: [build]
@@ -104,21 +104,21 @@ jobs:
             PROFILE=dev
             APP_VERSION=${{ steps.extract_version.outputs.VERSION }}
 
-  deploy-cloud-google:
-    name: Deploy to Google Cloud Run
-    runs-on: ubuntu-latest
-    needs: [ build-image ]
-    steps:
-      - name: Install Google Cloud CLI
-        uses: google-github-actions/setup-gcloud@v0.2.0
-        with:
-          project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
-          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-
-      - name: Deploy to Google Cloud Run
-        run: |
-          gcloud run deploy bsn-api \
-            --image="${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:${{ steps.extract_version.outputs.VERSION }}" \
-            --platform=managed \
-            --region=us-central1 \
-            --allow-unauthenticated
+#  deploy-cloud-google:
+#    name: Deploy to Google Cloud Run
+#    runs-on: ubuntu-latest
+#    needs: [ build-image ]
+#    steps:
+#      - name: Install Google Cloud CLI
+#        uses: google-github-actions/setup-gcloud@v0.2.0
+#        with:
+#          project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+#          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+#
+#      - name: Deploy to Google Cloud Run
+#        run: |
+#          gcloud run deploy bsn-api \
+#            --image="${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:${{ steps.extract_version.outputs.VERSION }}" \
+#            --platform=managed \
+#            --region=us-central1 \
+#            --allow-unauthenticated
