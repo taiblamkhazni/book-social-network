@@ -1,47 +1,35 @@
-# Nom du pipeline
 name: BSN Backend API Pipeline
 
-# Déclencheurs du pipeline
 on:
-  # Déclenché lors d'un push sur la branche 'main'
   push:
     branches:
       - main
-    # Chemins spécifiques qui déclenchent le pipeline lorsqu'ils sont modifiés
     paths:
       - book-network/**
       - docker/backend/**
       - 'docker-compose.yml'
       - .github/workflows/*-backend.yml
 
-# Jobs du pipeline
 jobs:
-  # Job de compilation
   compile:
-    # Exécution sur un runner auto-hébergé
     runs-on: self-hosted
     name: Compile project
     steps:
-      # Étape de récupération du code
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Étape de configuration de JDK
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'corretto'
 
-      # Étape d'exécution des tests unitaires
       - name: Running Unit Tests
         run: |
           cd book-network
           ./mvnw clean compile
-
-  # Job de tests unitaires
   unit-tests:
     runs-on: self-hosted
     name: Unit tests
@@ -61,12 +49,9 @@ jobs:
         run: |
           cd book-network
           ./mvnw clean test
-
-  # Job de construction
   build:
     runs-on: self-hosted
     name: Build backend
-    # Ce job nécessite que les jobs 'compile' et 'unit-tests' aient réussi
     needs: [compile, unit-tests]
     steps:
       - name: Checkout code
@@ -85,11 +70,9 @@ jobs:
           cd book-network
           ./mvnw clean compile
 
-  # Job de construction de l'image Docker
   build-image:
     name: Build Docker image
     runs-on: self-hosted
-    # Ce job nécessite que le job 'build' ait réussi
     needs: [build]
     steps:
       - name: Setup JDK
@@ -97,7 +80,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
-
       - name: Extract project version
         id: extract_version
         run: |
@@ -116,9 +98,22 @@ jobs:
           context: book-network
           file: docker/backend/Dockerfile
           push: true
-          #platforms: linux/amd64
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:latest
-          #${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:${{ steps.extract_version.outputs.VERSION }}
-          #build-args: |
-           # PROFILE=dev
-           # APP_VERSION=${{ steps.extract_version.outputs.VERSION }}
+          platforms: linux/amd64
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:${{ steps.extract_version.outputs.VERSION }},${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:latest
+          build-args: |
+            PROFILE=dev
+            APP_VERSION=${{ steps.extract_version.outputs.VERSION }}
+  
+  
+
+#  health-check:
+#    name: API Health Check
+#    runs-on: self-hosted
+#    needs: [deploy]
+#    steps:
+#      - name: Check the docker container health status
+#        run: |
+#          if ! docker ps -a | grep bsn-api; then
+#            echo "Container is not running"
+#            exit 1
+#          fi
