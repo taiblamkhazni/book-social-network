@@ -99,10 +99,7 @@ jobs:
           distribution: "corretto"
 
       - name: Set execute permissions for Maven Wrapper
-        run: |
-          cd book-network
-          mvn -N io.takari:maven:0.7.7:wrapper
-          chmod +x mvnw
+        run: chmod +x book-network/mvnw
 
       - name: Extract project version
         id: extract_version
