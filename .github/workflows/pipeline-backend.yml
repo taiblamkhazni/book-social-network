@@ -98,9 +98,6 @@ jobs:
           java-version: "17"
           distribution: "corretto"
 
-      - name: Set execute permissions for Maven Wrapper
-        run: chmod +x book-network/mvnw
-
       - name: Extract project version
         id: extract_version
         run: |
