@@ -98,9 +98,9 @@ jobs:
           java-version: "17"
           distribution: "corretto"
 
-#      - name: Extract project version
-#        id: extract_version
-#        run: echo "VERSION=$(./book-network/mvnw -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
+      #      - name: Extract project version
+      #        id: extract_version
+      #        run: echo "VERSION=$(./book-network/mvnw -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -111,7 +111,7 @@ jobs:
       - name: Build & Push to DockerHub
         uses: docker/build-push-action@v5
         with:
-          context: ./book-network
+          context: .
           file: docker/backend/Dockerfile
           push: true
           platforms: linux/amd64
