@@ -26,10 +26,14 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
+      - name: Set execute permissions for Maven Wrapper
+        run: chmod +x book-network/mvnw
+
       - name: Running Unit Tests
         run: |
           cd book-network
           ./mvnw clean compile
+
   unit-tests:
     runs-on: ubuntu-latest
     name: Unit tests
@@ -45,10 +49,14 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
+      - name: Set execute permissions for Maven Wrapper
+        run: chmod +x book-network/mvnw
+
       - name: Running Unit Tests
         run: |
           cd book-network
           ./mvnw clean test
+
   build:
     runs-on: ubuntu-latest
     name: Build backend
@@ -65,6 +73,9 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
+      - name: Set execute permissions for Maven Wrapper
+        run: chmod +x book-network/mvnw
+
       - name: Compile project
         run: |
           cd book-network
@@ -80,6 +91,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
+
+      - name: Set execute permissions for Maven Wrapper
+        run: chmod +x book-network/mvnw
+
       - name: Extract project version
         id: extract_version
         run: |
@@ -103,6 +118,7 @@ jobs:
           build-args: |
             PROFILE=dev
             APP_VERSION=${{ steps.extract_version.outputs.VERSION }}
+
 
 #  deploy-cloud-google:
 #    name: Deploy to Google Cloud Run
