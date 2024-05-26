@@ -35,7 +35,7 @@ jobs:
           ./mvnw clean compile
 
   unit-tests:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Unit tests
     steps:
       - name: Checkout code
