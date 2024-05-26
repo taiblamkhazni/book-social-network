@@ -38,6 +38,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Unit tests
     steps:
+      - name: Setup DB
+        uses: harmon758/postgresql-action@v1
+        with:
+          postgresql db: book_social_network
+          postgresql user: username
+          postgresql password: password
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -56,10 +62,6 @@ jobs:
         run: |
           cd book-network
           ./mvnw clean test
-        env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://0.0.0.0:5432/book_social_network
-          SPRING_DATASOURCE_USERNAME: username
-          SPRING_DATASOURCE_PASSWORD: password
 
   build:
     runs-on: ubuntu-latest
