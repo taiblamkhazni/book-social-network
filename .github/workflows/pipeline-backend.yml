@@ -15,6 +15,14 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: username
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: book_social_network
+        ports:
+          - 5432:5432
       api:
         image: lamkhazni/bsn-api:0.0.6
         ports:
