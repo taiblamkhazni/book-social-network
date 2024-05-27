@@ -11,7 +11,7 @@ RUN npm install
 RUN mkdir -p ./openapi
 
 # Télécharger la spécification OpenAPI depuis l'URL
-RUN wget http://localhost:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
+RUN wget http://127.0.0.1:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
 
 # Print the contents of the /app/openapi directory
 RUN ls -la /app/openapi
