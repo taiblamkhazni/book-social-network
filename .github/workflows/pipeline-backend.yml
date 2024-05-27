@@ -15,6 +15,12 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Setup DB
+        uses: harmon758/postgresql-action@v1
+        with:
+            postgresql db: book_social_network
+            postgresql user: username
+            postgresql password: password
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -28,7 +34,7 @@ jobs:
         run: |
           cd book-network
           mvn -B test --file pom.xml
-      - name : build backend
+      - name: build backend
         run: |
           cd book-network
           mvn clean

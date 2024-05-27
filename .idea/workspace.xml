@@ -6,18 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="36c5dbcc-3f00-4ae8-b27f-37086e705e26" name="Changes" comment="BSN first commit project">
       <change beforePath="$PROJECT_DIR$/.github/workflows/pipeline-backend.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pipeline-backend.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/book-network-0.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/book-network-0.0.1.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/classes/com/alibou/book/config/LoadOpenApiConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/surefire-reports/2024-05-26T22-01-27_980-jvmRun1.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/surefire-reports/TEST-com.alibou.book.BookNetworkApiApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/surefire-reports/com.alibou.book.BookNetworkApiApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/target/test-classes/com/alibou/book/BookNetworkApiApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +201,7 @@
       <workItem from="1716566712174" duration="7444000" />
       <workItem from="1716581179537" duration="8094000" />
       <workItem from="1716750688670" duration="11857000" />
-      <workItem from="1716762816982" duration="10581000" />
+      <workItem from="1716762816982" duration="11008000" />
     </task>
     <task id="LOCAL-00001" summary="BSN first commit project">
       <option name="closed" value="true" />
