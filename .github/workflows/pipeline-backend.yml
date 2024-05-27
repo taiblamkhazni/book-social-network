@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       api:
-        image: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:0.0.6  # Replace with your actual API Docker image
+        image: lamkhazni/bsn-api:0.0.6
         ports:
           - 8088:8088
         options: >-
@@ -56,9 +56,9 @@ jobs:
       - name: Télécharger la spécification OpenAPI depuis l'URL
         run: |
           sleep 30  # Ensure the API container has enough time to start
-          wget http://localhost:8088/api/v1/v3/api-docs -O ../book-network-ui/openapi/openapi.json
+          wget http://localhost:8088/api/v1/v3/api-docs -O book-network-ui/openapi/openapi.json
       - name: List root directory
-        run: ls -la book-network/openapi
+        run: ls -la book-network-ui/openapi
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:

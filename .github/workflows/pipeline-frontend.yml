@@ -30,7 +30,7 @@ jobs:
         run: |
           cd book-network-ui
           npm install -g ng-openapi-gen
-          ng-openapi-gen --input ../book-network/openapi/openapi.json --output ./src/app/services/api
+          ng-openapi-gen --input openapi/openapi.json --output src/app/services/api
       - name: List root directory
         run: ls -la book-network-ui/src/app/services/api
       - name: Extract project version
