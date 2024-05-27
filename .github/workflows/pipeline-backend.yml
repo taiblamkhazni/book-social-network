@@ -14,6 +14,16 @@ jobs:
   build-dploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
+    services:
+      api:
+        image: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:0.0.6  # Replace with your actual API Docker image
+        ports:
+          - 8088:8088
+        options: >-
+          --health-cmd="curl -f http://localhost:8088/api/v1/v3/api-docs || exit 1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
     steps:
       - name: Setup DB
         uses: harmon758/postgresql-action@v1
@@ -45,8 +55,8 @@ jobs:
           mkdir -p openapi
       - name: Télécharger la spécification OpenAPI depuis l'URL
         run: |
-          cd book-network-ui
-          wget http://localhost:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
+          sleep 30  # Ensure the API container has enough time to start
+          wget http://localhost:8088/api/v1/v3/api-docs -O ../book-network-ui/openapi/openapi.json
       - name: List root directory
         run: ls -la book-network/openapi
       - name: Login to DockerHub

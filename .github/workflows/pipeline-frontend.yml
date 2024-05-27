@@ -9,8 +9,15 @@ on:
       - docker/frontend/**
       - 'docker-compose.yml'
       - .github/workflows/*-frontend.yml
+  workflow_run:
+    workflows: [ "BSN Backend API Pipeline" ]
+    types:
+      - completed
 jobs:
   build-and-deploy:
+    if: |
+      github.event_name == 'push' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     name: Build and Deploy FE Docker image
     runs-on: ubuntu-latest
 
