@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-//@Configuration
+@Configuration
 public class LoadOpenApiConfig {
     private static final String OPENAPI_URL = "http://127.0.0.1:8088/api/v1/v3/api-docs";
     private static final String OUTPUT_FILE = "book-network-ui/src/openapi/openApi.json";

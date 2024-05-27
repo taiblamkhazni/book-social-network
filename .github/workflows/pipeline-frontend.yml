@@ -9,15 +9,8 @@ on:
       - docker/frontend/**
       - 'docker-compose.yml'
       - .github/workflows/*-frontend.yml
-  workflow_run:
-    workflows: [ "BSN Backend API Pipeline" ]
-    types:
-      - completed
 jobs:
   build-and-deploy:
-    if: |
-      github.event_name == 'push' &&
-      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     name: Build and Deploy FE Docker image
     runs-on: ubuntu-latest
 
@@ -26,13 +19,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Generate OpenAPI client
-        run: |
-          cd book-network-ui
-          npm install -g ng-openapi-gen
-          ng-openapi-gen --input openapi/openapi.json --output src/app/services/api
       - name: List root directory
-        run: ls -la book-network-ui/src/app/services/api
+        run: ls -la
       - name: Extract project version
         id: extract_version
         run: |

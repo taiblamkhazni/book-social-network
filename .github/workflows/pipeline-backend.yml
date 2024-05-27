@@ -14,24 +14,6 @@ jobs:
   build-dploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
-    services:
-      db:
-        image: lamkhazni/postgres:latest
-        env:
-          POSTGRES_DB: book_social_network
-          POSTGRES_USER: username
-          POSTGRES_PASSWORD: password
-        ports:
-          - 5432:5432
-      api:
-        image: lamkhazni/bsn-api:0.0.6
-        ports:
-          - 8088:8088
-        options: >-
-          --health-cmd="curl -f http://localhost:8088/api/v1/v3/api-docs || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=3
     steps:
       - name: Setup DB
         uses: harmon758/postgresql-action@v1
@@ -57,16 +39,8 @@ jobs:
           cd book-network
           mvn clean
           mvn -B package --file pom.xml
-      - name: Create the openapi directory
-        run: |
-          cd book-network-ui
-          mkdir -p openapi
-      - name: Télécharger la spécification OpenAPI depuis l'URL
-        run: |
-          sleep 30  # Ensure the API container has enough time to start
-          wget http://localhost:8088/api/v1/v3/api-docs -O book-network-ui/openapi/openapi.json
       - name: List root directory
-        run: ls -la book-network-ui/openapi
+        run: ls -la
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
