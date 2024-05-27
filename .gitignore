@@ -1,6 +1,6 @@
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-.uploads
+#.idea
+#*.iws
+#*.iml
+#*.ipr
+#.uploads
