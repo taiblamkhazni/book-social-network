@@ -15,8 +15,8 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres:latest
+      db:
+        image: postgres
         env:
           POSTGRES_USER: username
           POSTGRES_PASSWORD: password
