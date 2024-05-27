@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="36c5dbcc-3f00-4ae8-b27f-37086e705e26" name="Changes" comment="BSN first commit project">
       <change beforePath="$PROJECT_DIR$/.github/workflows/pipeline-backend.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pipeline-backend.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/backend/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +207,7 @@
       <workItem from="1716566712174" duration="7444000" />
       <workItem from="1716581179537" duration="8094000" />
       <workItem from="1716750688670" duration="11857000" />
-      <workItem from="1716762816982" duration="16215000" />
+      <workItem from="1716762816982" duration="16388000" />
     </task>
     <task id="LOCAL-00001" summary="BSN first commit project">
       <option name="closed" value="true" />
