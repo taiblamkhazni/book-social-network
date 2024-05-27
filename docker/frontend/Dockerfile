@@ -8,20 +8,20 @@ COPY package*.json ./
 RUN npm install
 
 # Create the openapi directory
-#RUN mkdir -p ./openapi
+RUN mkdir -p ./openapi
 
 # Télécharger la spécification OpenAPI depuis l'URL
-#RUN wget http://host.docker.internal:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
+RUN wget http://localhost:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
 
 # Print the contents of the /app/openapi directory
-#RUN ls -la /app/openapi
+RUN ls -la /app/openapi
 
 # Installer ng-openapi-gen
-#RUN npm install -g ng-openapi-gen
+RUN npm install -g ng-openapi-gen
 # Create the output directory
-#RUN mkdir -p ./services/api
+RUN mkdir -p ./services/api
 
-#RUN ng-openapi-gen --input /app/openapi/openapi.json --output ./services/api
+RUN ng-openapi-gen --input /app/openapi/openapi.json --output ./services/api
 
 COPY . .
 
