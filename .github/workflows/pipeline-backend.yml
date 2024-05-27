@@ -38,7 +38,25 @@ jobs:
         run: |
           cd book-network
           mvn clean
-          mvn -B package --file pom.xml 
+          mvn -B package --file pom.xml
+      - name: List root directory
+        run: ls -la
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+              username: ${{ secrets.DOCKERHUB_USERNAME }}
+              password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build & Push to DockerHub
+        uses: docker/build-push-action@v5
+        with:
+          context: book-network
+          file: docker/backend/Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:0.0.3,${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:latest
+          build-args: |
+            PROFILE=dev
+            APP_VERSION=0.0.3
 
 
 
