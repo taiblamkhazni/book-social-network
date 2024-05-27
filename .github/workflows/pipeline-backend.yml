@@ -71,14 +71,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: List root directory
-        run: ls -la
-      - name: List book-network directory
-        run: ls -la ./book-network
-      - name: List docker directory
-        run: ls -la ./docker
-      - name: List docker directory
-        run: ls -la ./docker/backend
+
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
@@ -92,6 +85,14 @@ jobs:
         run: |
           cd book-network
           ./mvnw clean compile
+      - name: List root directory
+        run: ls -la
+      - name: List book-network directory
+        run: ls -la ./book-network
+      - name: List docker directory
+        run: ls -la ./docker
+      - name: List docker directory
+        run: ls -la ./docker/backend
 
   build-image:
     name: Build Docker image
@@ -107,7 +108,14 @@ jobs:
       #      - name: Extract project version
       #        id: extract_version
       #        run: echo "VERSION=$(./book-network/mvnw -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
-
+      - name: List root directory
+        run: ls -la
+      - name: List book-network directory
+        run: ls -la ./book-network
+      - name: List docker directory
+        run: ls -la ./docker
+      - name: List docker directory
+        run: ls -la ./docker/backend
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
