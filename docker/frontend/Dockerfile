@@ -17,7 +17,7 @@ ARG API_URL=http://localhost:8088/api/v1/v3/api-docs
 ENV API_URL=$API_URL
 
 # Télécharger la spécification OpenAPI depuis l'URL
-RUN wget http://localhost:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
+RUN wget $API_URL -O ./openapi/openapi.json
 
 # Print the contents of the /app/openapi directory
 RUN ls -la /app/openapi
