@@ -86,7 +86,7 @@ jobs:
           cd book-network
           ./mvnw clean compile
       - name: List root directory
-        run: ls -la
+        run: ls -la .
       - name: List book-network directory
         run: ls -la ./book-network
       - name: List docker directory
@@ -109,7 +109,7 @@ jobs:
       #        id: extract_version
       #        run: echo "VERSION=$(./book-network/mvnw -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
       - name: List root directory
-        run: ls -la
+        run: ls -la .
       - name: List book-network directory
         run: ls -la ./book-network
       - name: List docker directory
