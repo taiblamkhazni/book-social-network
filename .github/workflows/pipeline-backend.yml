@@ -48,14 +48,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: List root directory
-        run: ls -la
-      - name: List book-network directory
-        run: ls -la ./book-network
-      - name: List docker directory
-        run: ls -la ./docker
-      - name: List docker directory
-        run: ls -la ./docker/backend
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
@@ -79,7 +71,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
+      - name: List root directory
+        run: ls -la
+      - name: List book-network directory
+        run: ls -la ./book-network
+      - name: List docker directory
+        run: ls -la ./docker
+      - name: List docker directory
+        run: ls -la ./docker/backend
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
@@ -114,14 +113,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: List root directory
-        run: ls -la
-      - name: List book-network directory
-        run: ls -la ./book-network
-      - name: List docker directory
-        run: ls -la ./docker
-      - name: List docker directory
-        run: ls -la ./docker/backend
+
       - name: Build & Push to DockerHub
         uses: docker/build-push-action@v5
         with:
