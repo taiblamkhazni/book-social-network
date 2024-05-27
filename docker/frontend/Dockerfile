@@ -10,8 +10,14 @@ RUN npm install
 # Create the openapi directory
 RUN mkdir -p ./openapi
 
+# Define a build argument with a default value
+ARG API_URL=http://localhost:8088/api/v1/v3/api-docs
+
+# Set the API_URL environment variable for use during runtime (optional)
+ENV API_URL=$API_URL
+
 # Télécharger la spécification OpenAPI depuis l'URL
-RUN wget http://127.0.0.1:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
+RUN wget http://localhost:8088/api/v1/v3/api-docs -O ./openapi/openapi.json
 
 # Print the contents of the /app/openapi directory
 RUN ls -la /app/openapi

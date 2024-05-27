@@ -40,7 +40,11 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }},${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:latest
-
+      - name: Docker build and push
+        env:
+          API_URL: http://localhost:8088/api/v1/v3/api-docs
+        run: |
+            docker build --build-arg API_URL=$API_URL -t ${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }} .
 #      - name: Authenticate to Google Cloud
 #        uses: google-github-actions/auth@v1
 #        with:
