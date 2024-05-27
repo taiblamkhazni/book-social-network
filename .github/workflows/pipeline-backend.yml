@@ -49,7 +49,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: List book-network directory
-        run: ls -la 
+        run: ls -la
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
@@ -108,12 +108,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Change working directory
-        run: echo "PWD=$(pwd)" >> $GITHUB_ENV
       - name: Build & Push to DockerHub
         uses: docker/build-push-action@v5
         with:
-          context: ./book-network
+          context: .
           file: ./docker/backend/Dockerfile
           push: true
           platforms: linux/amd64
