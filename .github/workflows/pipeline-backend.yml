@@ -54,6 +54,8 @@ jobs:
         run: ls -la ./book-network
       - name: List docker directory
         run: ls -la ./docker
+      - name: List docker directory
+        run: ls -la ./docker/backend
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
