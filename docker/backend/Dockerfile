@@ -1,4 +1,5 @@
 #docker build -t bsn/bsn-api:0.0.2 -f ../docker/backend/Dockerfile .
+#docker tag bsn/bsn-api:0.0.3 lamkhazni/bsn-api:0.0.3
 # Build stage
 FROM maven:3.8.7-openjdk-18 AS build
 WORKDIR /build
@@ -10,7 +11,7 @@ RUN mvn clean package -DskipTests
 # Runtime stage
 FROM amazoncorretto:17
 ARG PROFILE=dev
-ARG APP_VERSION=0.0.5
+ARG APP_VERSION=0.0.6
 
 WORKDIR /app
 COPY --from=build /build/target/book-network-*.jar /app/
