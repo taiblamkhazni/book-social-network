@@ -62,4 +62,5 @@ jobs:
             --image=${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }} \
             --platform=managed \
             --region=us-central1 \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --timeout=15m
