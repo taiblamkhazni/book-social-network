@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36c5dbcc-3f00-4ae8-b27f-37086e705e26" name="Changes" comment="BSN first commit project">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pipeline-backend.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pipeline-backend.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/pipeline-frontend.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pipeline-frontend.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -205,7 +204,7 @@
       <workItem from="1716750688670" duration="11857000" />
       <workItem from="1716762816982" duration="30731000" />
       <workItem from="1716839967360" duration="17000" />
-      <workItem from="1716913001654" duration="278000" />
+      <workItem from="1716913001654" duration="1190000" />
     </task>
     <task id="LOCAL-00001" summary="BSN first commit project">
       <option name="closed" value="true" />

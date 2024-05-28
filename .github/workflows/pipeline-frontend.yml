@@ -41,6 +41,7 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }},${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:latest
+
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
@@ -57,7 +58,7 @@ jobs:
 
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy bsn-frontend \
+          gcloud run deploy bsn-ui \
             --image=${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION }} \
             --platform=managed \
             --region=us-central1 \
