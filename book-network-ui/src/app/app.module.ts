@@ -10,13 +10,15 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/h
 import {HttpTokenInterceptor} from './services/interceptor/http-token.interceptor';
 import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
 import {CodeInputModule} from 'angular-code-input';
+import { ConfigurationClientComponent } from './configuration-client/configuration-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ActivateAccountComponent
+    ActivateAccountComponent,
+    ConfigurationClientComponent
   ],
     imports: [
         BrowserModule,
